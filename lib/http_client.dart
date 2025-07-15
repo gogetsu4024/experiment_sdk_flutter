@@ -11,11 +11,12 @@ abstract class QueryParameters {
 // HTTP Client Class
 class HttpClient {
   final String _apiKey;
-  final String _baseUri = 'api.lab.amplitude.com';
+  final String _baseUri;
   final bool _shouldRetry;
 
-  HttpClient({required apiKey, bool? shouldRetry})
+  HttpClient({required apiKey,required baseUrl, bool? shouldRetry})
       : _apiKey = apiKey,
+        _baseUri = baseUrl,
         _shouldRetry = shouldRetry ?? true;
 
   bool _isRetry = false;

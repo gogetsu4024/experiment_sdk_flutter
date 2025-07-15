@@ -5,6 +5,7 @@ import 'package:experiment_sdk_flutter/types/experiment_variant.dart';
 class ExperimentConfig {
   final bool? debug;
   final String? instanceName;
+  final String baseUrl;
   final ExperimentVariant? fallbackVariant;
   final ExperimentVariantSource? source;
   final int? fetchTimeoutMillis;
@@ -16,6 +17,7 @@ class ExperimentConfig {
 
   ExperimentConfig(
       {this.debug = false,
+      this.baseUrl = "api.lab.eu.amplitude.com",
       this.instanceName = '\$default_instance',
       this.fallbackVariant,
       this.source,
@@ -27,6 +29,7 @@ class ExperimentConfig {
   copyWith(
       {bool? debug,
       String? instanceName,
+      String? baseUrl,
       ExperimentVariant? fallbackVariant,
       ExperimentVariantSource? source,
       int? fetchTimeoutMillis,
@@ -36,6 +39,7 @@ class ExperimentConfig {
     return ExperimentConfig(
         debug: debug ?? this.debug,
         instanceName: instanceName ?? this.instanceName,
+        baseUrl: baseUrl ?? this.baseUrl,
         fallbackVariant: fallbackVariant ?? this.fallbackVariant,
         source: source ?? this.source,
         fetchTimeoutMillis: fetchTimeoutMillis ?? this.fetchTimeoutMillis,

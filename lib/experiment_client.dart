@@ -22,7 +22,7 @@ class ExperimentClient {
   ExperimentClient({required String apiKey, ExperimentConfig? config})
       : _config = config,
         _httpClient = HttpClient(
-            apiKey: apiKey, shouldRetry: config?.retryFetchOnFailure),
+            apiKey: apiKey, shouldRetry: config?.retryFetchOnFailure,baseUrl: config?.baseUrl ?? "api.lab.eu.amplitude.com"),
         _localStorage = LocalStorage(apiKey: apiKey) {
     _localStorage.load();
   }
